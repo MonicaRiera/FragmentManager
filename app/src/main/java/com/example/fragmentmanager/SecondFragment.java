@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 /**
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
  */
 public class SecondFragment extends Fragment {
 
+    private TextView tvUpdateInfo;
 
     public SecondFragment() {
         // Required empty public constructor
@@ -25,7 +27,14 @@ public class SecondFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_second, container, false);
+        View root = inflater.inflate(R.layout.fragment_second, container, false);
+
+        tvUpdateInfo = root.findViewById(R.id.fragment_second__tv__update_info);
+
+        return root;
     }
 
+    public void updateInfo(int num) {
+        tvUpdateInfo.setText(String.valueOf(num));
+    }
 }
